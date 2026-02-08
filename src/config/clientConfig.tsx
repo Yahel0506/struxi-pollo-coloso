@@ -1,447 +1,225 @@
 import type {FontFamily} from "./fonts";
 import { getUIConfig } from "./presets";
 
-// Interfaces para tipado de elementos
-interface GalleryItem {
-    image: string;
-    name: string;
-}
-
-interface TestimonialItem {
-    name: string;
-    role: string;
-    review: string;
-    stars: number;
-    avatar?: string;
-}
-
-interface MenuProduct {
-    name: string;
-    description: string;
-    type: string;
-    price: string;
-    benefit: string;
-}
-
+// Interfaces para tipado de elementos (se mantienen igual)
+interface GalleryItem { image: string; name: string; }
+interface TestimonialItem { name: string; role: string; review: string; stars: number; avatar?: string; }
+interface MenuProduct { name: string; description: string; type: string; price: string; benefit: string; }
 interface MenuItem {
     type: "category" | "product";
     name: string;
     image?: string;
     products?: MenuProduct[];
-    // Para productos directos
     description?: string;
     productType?: string;
     price?: string;
     backgroundColor?: string;
     textColor?: string;
-    badge?: {
-        show: boolean;
-        text: string;
-        strikethrough: boolean;
-        backgroundColor: string;
-        textColor: string;
-    };
+    badge?: { show: boolean; text: string; strikethrough: boolean; backgroundColor: string; textColor: string; };
     benefits?: string[];
 }
-
-interface BranchLocation {
-    name: string;
-    address: string;
-    image?: string;
-    googleMapsLink: string;
-}
-
+interface BranchLocation { name: string; address: string; image?: string; googleMapsLink: string; }
 
 export const clientConfig = {
-    // 1. INFORMACIÓN DE MARCA Y SEO
+    // 1. MARCA - Identidad visual rápida
     brand: {
-        name: "Struxi Labs",
-        tagline: "Brindándole a tu negocio la presencia que merece.",
-        logoPath: "/images/logo.svg",
-        faviconPath: "/images/logo.svg",
-        seoDescription: "desarrollo web profesional, páginas web para pymes México, landing pages de alta conversión, diseño web rápido, Struxi Labs, creación de sitios web con Next.js, digitalización de negocios locales.",
-
-        // Sistema de colores
+        name: "El Pollo Coloso",
+        tagline: "Desde 1982 el mejor sabor de Ciudad Guzmán.",
+        logoPath: "/images/logo.png",
+        faviconPath: "/images/logo.png",
+        seoDescription: "El Pollo Coloso le ofrece pollos al estilo Sinaloa con una de los mejores tratos así como de un gran sazón.",
         colors: {
-            primary: "#da007d",
-            secondary: "#ffd65c",
-            accent: "#0891b2",
+            primary: "#e61919",
+            secondary: "#ffb400",
+            accent: "#22c55e",
             background: "#ffffff",
             backgroundAlt: "#f9fafb",
             textPrimary: "#111827",
-            textSecondary: "#6b7280",
+            textSecondary: "#4b5563",
             textMuted: "#9ca3af",
             danger: "#dc2626",
             success: "#16a34a",
             warning: "#ea580c",
             info: "#0284c7",
         },
-
         showNameInHeader: true,
-
-        // Sistema de tipografía
         typography: {
-            headers: {
-                fontFamily: "Montserrat" as FontFamily,
-                fontWeight: 700,
-                color: "",
-            },
-            body: {
-                fontFamily: "Inter" as FontFamily,
-                fontWeight: 400,
-                color: "",
-            },
+            headers: { fontFamily: "Montserrat" as FontFamily, fontWeight: 800, color: "#e61919" },
+            body: { fontFamily: "Inter" as FontFamily, fontWeight: 400, color: "" },
         },
-
-        // Tema visual y animaciones
-        theme: "modern" as "modern" | "professional",
+        theme: "modern" as "modern",
         enableAnimations: true,
-
-        // 🎨 PRESET DE DISEÑO UI
-        // Selecciona uno de los presets predefinidos que controla toda la apariencia visual
-        // "modern" = Bordes redondeados, sombras suaves, diseño contemporáneo
-        // "professional" = Líneas limpias, minimalista, corporativo
-        // "minimal" = Ultra-minimalista, sin bordes redondeados, espacios amplios
-        uiPreset: "modern" as "modern" | "professional" | "minimal",
-
-        // Acceso a la configuración UI (se obtiene automáticamente del preset)
-        get components() {
-            return getUIConfig(this.uiPreset);
-        },
+        uiPreset: "modern" as "modern",
+        get components() { return getUIConfig(this.uiPreset); },
     },
 
-    // ...existing code...
+    // 2. CONTACTO - Lo más importante
     contact: {
-        whatsappNumber: "523411768237", // Formato internacional sin el +
-        whatsappMessage: "Hola! Me interesa pedir informes sobre sus servicios.",
-        email: "yahelloppez@gmail.com", // Dejar "" para ocultar
-        phoneDisplay: "341 176 8237", // Cómo se ve escrito en la web - Dejar "" para ocultar
-        address: "", // Dejar "" para ocultar
-        googleMapsLink: "", // Link para el botón de "Cómo llegar"
+        whatsappNumber: "523414184141",
+        whatsappMessage: "¡Hola! Quiero hacer un pedido.",
+        phoneDisplay: "341 418 4141",
+        address: "Calle Gral. Ramón Corona Madrigal 550, centro, 49000 Cdad. Guzmán, Jal.",
+        googleMapsLink: "https://maps.app.goo.gl/YQwA5Kkh3PSw5QZM6",
     },
 
-    // 3. SECCIÓN HERO
+    // 3. HERO - Directo al grano
     hero: {
-        title: "Recibe más clientes con un sitio web profesional",
-        subtitle: "Creamos tu presencia online para que tu negocio destaque y crezca.",
-        buttonText: "Comenzar",
-        backgroundImage: "/images/hero-bg.jpg",
-        // Imagen destacada en el espacio central
-        featuredImage: {
-            show: false,              // true para mostrar la imagen, false para ocultarla
-            path: "/images/logo.png",                 // Ruta de la imagen ej. "/images/hero-featured.png"
-            alt: "Imagen destacada",  // Texto alternativo para accesibilidad
-            maxWidth: "200px",        // Ancho máximo de la imagen ej. "400px", "600px", "800px"
-        },
+        title: "¡Pide tu Pollo Coloso hoy!",
+        subtitle: "Sabor tradicional asado al carbón con sus guarniciones de siempre.",
+        buttonText: "Comprar Ahora",
+        backgroundImage: "/images/menu/pollo.jpg",
+        featuredImage: { show: true, path: "/images/logo.png", alt: "Pollo Coloso", maxWidth: "350px" },
     },
 
-    // 3.5. SECCIÓN DE ANUNCIOS (Banner publicitario)
-    announcement: {
-        // Ruta de la imagen del anuncio. Dejar vacío ("") para ocultar la sección.
-        // La imagen se mostrará al ancho de la pantalla manteniendo su relación de aspecto.
-        imagePath: "", // Ejemplo: "/images/announcement-banner.jpg"
-        // Alt text para accesibilidad
-        altText: "Anuncio especial",
-        // Ancho máximo del banner (opcional)
-        maxWidth: "1920px", // Ejemplo: "1200px", "1600px", "100%" para ancho completo
-    },
-
-    // 3.6. SECCIÓN DE MENÚ (Productos/Servicios)
+    // 4. MENÚ - Utilidad pura para el usuario
     menu: {
-        visible: true, // true para mostrar la sección, false para ocultarla
-        badge: "Lo que ofrecemos",
-        title: "Descubre nuestros servicios",
-        subtitle: "Todo lo que necesitas para llevar tu negocio al siguiente nivel",
-
-        // Mensaje predeterminado para WhatsApp cuando se selecciona un producto
-        // Variables disponibles: {product} - se reemplazará con el nombre del producto
-        whatsappMessageTemplate: "Hola! Me interesaría adquirir el {product}",
-
-        // Items del menú - pueden ser categorías (con modal) o productos directos
+        visible: true,
+        badge: "Menú y Precios",
+        title: "Nuestras Promociones y Productos",
+        subtitle: "Precios actualizados para servicio en sucursal y domicilio",
+        whatsappMessageTemplate: "Hola, me interesa el {product}",
         items: [
             {
-                type: "product", // "product" muestra directamente como card
-                name: "Plan Crecimiento",
-                description: "Ideal para empezar sin gastos de mantenimiento anual de dominio.",
-                productType: "Web Profesional Sin Dominio",
-                price: "$999",
-                image: "/images/growing-plan.webp", // Opcional para fondo de la card
-                backgroundColor: "#001c60", // Opcional: color de fondo personalizado ej. "#1a1a1a"
-                textColor: "#ffffff",       // Opcional: color de texto personalizado ej. "#ffffff"
-                // Badge opcional con texto tachado o normal
-                badge: {
-                    show: true,
-                    text: "$2199",
-                    strikethrough: true,  // true para tachar el texto
-                    backgroundColor: "rgba(255,0,0,0.34)", // Rojo
-                    textColor: "rgba(255,255,255,0.66)",
-                },
-                // Lista de beneficios/características
-                benefits: [
-                    "Diseño responsive y moderno",
-                    "Optimización SEO básica",
-                    "Hasta 5 secciones (Encabezado, Gancho, Anuncio, Menú de productos limitado, Footer con contacto)",
-                    "30 días de soporte gratis",
+                type: "product",
+                name: "1 POLLO Y MEDIO",
+                description: "El paquete familiar por excelencia, comen hasta 5 personas.",
+                price: "$265 MXN",
+                image: "/images/menu/pollo.jpg",
+                benefits: ["1 Pollo y Medio", "2 complementos", "Deliciosas salsas", "Tortillas calientes", "Totopos crujientes"],
+            },
+            {
+                type: "product",
+                name: "1 POLLO Y MEDIO",
+                description: "El paquete familiar por excelencia, comen hasta 5 personas.",
+                price: "$175 MXN",
+                image: "/images/menu/pollo.jpg",
+                benefits: ["1 Pollo Completo", "2 complementos", "Deliciosas salsas", "Tortillas calientes", "Totopos crujientes"],
+            },
+            {
+                type: "category",
+                name: "Pollo",
+                image: "/images/menu/pollo.jpg",
+                products: [
+                    { name: "1 Pollo Completo", description: "Pollo Asado al carbón con el sazón de pollo coloso.", type: "Pollo", price: "$170", benefit: "" },
                 ],
             },
             {
-                type: "product", // "product" muestra directamente como card
-                name: "Plan Profesional",
-                description: "Para negocios que quieren su marca propia y total independencia.",
-                productType: "Web Profesional con Dominio Personalizado",
-                price: "$1799 + $599 anuales",
-                image: "/images/professional-plan.jpg", // Opcional para fondo de la card
-                backgroundColor: "#1c1c1c", // Opcional: color de fondo personalizado ej. "#1a1a1a"
-                textColor: "#cdb149",       // Opcional: color de texto personalizado ej. "#ffffff"
-                // Badge opcional con texto tachado o normal
-                badge: {
-                    show: true,
-                    text: "$3599",
-                    strikethrough: true,  // true para tachar el texto
-                    backgroundColor: "rgba(255,0,0,0.34)", // Rojo
-                    textColor: "rgba(255,255,255,0.66)",
-                },
-                // Lista de beneficios/características
-                benefits: [
-                    "Todo lo del Plan Crecimiento",
-                    "Dominio personalizado GRATIS el primer año (.com, .mx, etc)",
-                    "Certificado SSL (sitio seguro)",
-                    "Correos corporativos profesionales",
-                    "Hosting premium por 1 año",
-                    "Acceso a 7 nuevas secciones (Menú de productos completo, Puntos de dolor, Servicios, Diferenciadores, Galería, Testimonios, Preguntas frecuentes)",
+                type: "category",
+                name: "Hamburguesas",
+                image: "/images/menu/hamburguesas.jpg",
+                products: [
+                    { name: "Hamburguesa de Res", description: "Hamburguesa de Res acompañado con papas fritas.", type: "Res", price: "$70", benefit: "" },
+                    { name: "Hamburguesa de Pollo", description: "Hamburguesa de Pollo acompañado con papas fritas.", type: "Pollo", price: "$70", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Alitas de Pollo",
+                image: "/images/menu/alitas.jpg",
+                products: [
+                    { name: "Alitas BBQ", description: "Alitas de pollo al estilo BBQ con el sazón de pollo coloso acompañado de papas fritas.", type: "BBQ", price: "$85", benefit: "" },
+                    { name: "Alitas Naturales", description: "Alitas de pollo naturales con el sazón de pollo coloso acompañado de papas fritas.", type: "Naturales", price: "$85", benefit: "" },
+                    { name: "Alitas Buffalo", description: "Alitas de pollo al estilo Buffalo con el sazón de pollo coloso acompañado de papas fritas.", type: "Buffalo", price: "$85", benefit: "" },
+                    { name: "Alitas Mango Habanero", description: "Alitas de pollo al estilo Mango Habanero con el sazón de pollo coloso acompañado de papas fritas.", type: "Mango Habanero", price: "$85", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Flautas",
+                image: "/images/menu/flautas.jpg",
+                products: [
+                    { name: "Orden de Flautas", description: "Orden de flautas acompañado con ensalada.", type: "Flautas", price: "$45", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Dedos de Queso",
+                image: "/images/menu/dedos.jpg",
+                products: [
+                    { name: "Dedos de Queso", description: "Dedos de queso acompañados con papas fritas.", type: "Dedos de Queso", price: "$65", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Quesadillas",
+                image: "/images/menu/quesadillas.jpg",
+                products: [
+                    { name: "Quesadilla Sencilla", description: "Quesadilla grande acompañado de ensalada y todo el sabor de pollo coloso.", type: "Sencilla", price: "$50", benefit: "" },
+                    { name: "Quesadilla con Pollo", description: "Quesadilla grande con pollo, acompañado de ensalada y todo el sabor de pollo coloso.", type: "Con Pollo", price: "$70", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Nuggets y Papas a la Francesa",
+                image: "/images/menu/nuggets.jpg",
+                products: [
+                    { name: "Papas a la Francesa", description: "Papas a la francesa elaboradas en el momento con el sazón de Pollo Coloso.", type: "Papas", price: "$45", benefit: "" },
+                    { name: "Nuggets de Pollo", description: "Nuggets de pollo con el sazón del Pollo Coloso acompañados de papas a la francesa.", type: "Nuggets", price: "$55", benefit: "" },
+                ],
+            },
+            {
+                type: "category",
+                name: "Ensaladas",
+                image: "/images/menu/ensaladas.jpg",
+                products: [
+                    { name: "Ensalada Grande", description: "Ensalada grande con el sazón de Pollo Coloso.", type: "Grande", price: "$40", benefit: "" },
+                    { name: "Ensalada Chica", description: "Ensalada chica con el sazón de Pollo Coloso.", type: "Chica", price: "$25", benefit: "" },
+
+                ],
+            },
+            {
+                type: "category",
+                name: "Complementos",
+                image: "/images/menu/complementos.jpg",
+                products: [
+                    { name: "Codito de Jamón", description: "Codito de Jamón hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
+                    { name: "Codito de Pepino", description: "Codito de Pepino hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
+                    { name: "Arroz Blanco", description: "Arroz Blanco hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
+                    { name: "Arroz Rojo", description: "Arroz Rojo hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
+                    { name: "Guacamole", description: "Guacamole hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$35", benefit: "" },
+                    { name: "Papas en Gajo", description: "Papas en Gajo hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$45", benefit: "" },
+                    { name: "Papas Adobadas", description: "Papas Adobadas hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$30", benefit: "" },
                 ],
             },
         ] as MenuItem[],
-        // EJEMPLO DE CATEGORÍA CON MODAL:
-        // {
-        //     type: "category", // "category" abre un modal con productos
-        //     name: "Cafés",
-        //     image: "/images/menu/cafe.jpg", // Opcional - se oculta si está vacío
-        //     products: [
-        //         {
-        //             name: "Café Americano",
-        //             description: "Café espresso con agua caliente",
-        //             type: "Bebida Caliente",
-        //             price: "$45",
-        //             benefit: "Rico en antioxidantes",
-        //         },
-        //         {
-        //             name: "Cappuccino",
-        //             description: "Espresso con leche espumada",
-        //             type: "Bebida Caliente",
-        //             price: "$55",
-        //             benefit: "Cremoso y delicioso",
-        //         },
-        //     ],
-        // },
-
-        // EJEMPLO DE PRODUCTO DIRECTO (card 9:16):
-        // {
-        //     type: "product", // "product" muestra directamente como card
-        //     name: "Promoción del Día",
-        //     description: "2 cafés americanos + 2 donas glaseadas",
-        //     productType: "Combo Especial",
-        //     price: "$120",
-        //     image: "/images/menu/promo.jpg", // Opcional para fondo de la card
-        //     backgroundColor: "#1a1a1a", // Opcional: color de fondo personalizado
-        //     textColor: "#ffffff",       // Opcional: color de texto personalizado
-        //     badge: {                    // Badge opcional superior
-        //         show: true,
-        //         text: "Precio normal: $150",
-        //         strikethrough: true,    // true = texto tachado, false = texto normal
-        //         backgroundColor: "#dc2626", // Color de fondo del badge
-        //         textColor: "#ffffff",   // Color del texto del badge
-        //     },
-        //     benefits: [                 // Lista de beneficios con viñetas
-        //         "Incluye 2 donas gratis",
-        //         "Válido de lunes a viernes",
-        //         "Ahorra $30 MXN",
-        //     ],
-        // },
     },
 
-    // 4. SECCIÓN "EL PROBLEMA" (Puntos de dolor)
-    painPoints: {
-        badge: "¿Te suena familiar?",
-        title: "¿Por qué tu negocio no crece como debería?",
-        subtitle: "Identificamos los problemas más comunes que detienen tus ventas digitales.",
-        closingText: "Tenemos la solución perfecta para ti",
-        points: [
-            {
-                question: "No apareces en Google",
-                description: "Tus clientes buscan tus servicios activamente pero solo encuentran a tu competencia directa.",
-                icon: "Search", // Icono de Lucide React
-            },
-            {
-                question: "Redes sociales sin ventas",
-                description: "Tienes likes y seguidores, pero nadie compra, nadie pregunta precios y el retorno es nulo.",
-                icon: "TrendingDown",
-            },
-            {
-                question: "Falta de imagen profesional",
-                description: "Tu negocio se ve pequeño o amateur frente a competidores establecidos con webs modernas.",
-                icon: "Store",
-            },
-        ],
-    },
-
-    // 5. SERVICIOS (Lo que ofreces)
-    services: {
-        badge: "Nuestras Soluciones",
-        title: "Todo lo que tu negocio necesita para despegar",
-        subtitle: "Servicios diseñados específicamente para hacer crecer tu presencia digital y atraer más clientes.",
-        items: [
-            {
-                id: 1,
-                title: "Sitio Web Profesional",
-                description: "Diseño moderno y responsive que funciona perfecto en cualquier dispositivo y te hace destacar.",
-                icon: "Globe", // Icono de Lucide React
-            },
-            {
-                id: 2,
-                title: "Posicionamiento en Google",
-                description: "Optimización SEO para que tus clientes te encuentren fácilmente cuando busquen tus servicios.",
-                icon: "TrendingUp",
-            },
-            {
-                id: 3,
-                title: "Entrega en tiempo récord",
-                description: "Tu sitio web listo en máximo 72 horas, para que no pierdas ni un solo día sin presencia online.",
-                icon: "Clock",
-            },
-        ],
-    },
-
-    // 6. DIFERENCIADORES (Por qué nosotros)
-    features: {
-        badge: "¿Por qué elegirnos?",
-        title: "No somos como los demás",
-        subtitle: "Mientras otras agencias tardan semanas y cobran fortunas, nosotros ofrecemos rapidez, calidad y precios inigualables.",
-        items: [
-            {
-                title: "Entrega Rápida",
-                description: "Tu proyecto listo en un lapso de 48-72 horas sin comprometer la calidad.",
-                icon: "Zap"
-            },
-            {
-                title: "Soporte 24/7",
-                description: "Estamos disponibles cuando nos necesites, sin horarios limitados.",
-                icon: "Headphones"
-            },
-            {
-                title: "Diseño Premium",
-                description: "Estética moderna que impresiona y convierte visitantes en clientes.",
-                icon: "Award"
-            },
-            {
-                title: "Precios Justos",
-                description: "Calidad profesional con los mejores precios del mercado, transparencia total.",
-                icon: "DollarSign"
-            },
-            {
-                title: "Optimización SEO",
-                description: "Tu negocio visible en Google desde el día uno.",
-                icon: "TrendingUp"
-            },
-            {
-                title: "Dominio Propio Incluido",
-                description: "Tu sitio web con tu marca, sin subdominios ni publicidad.",
-                icon: "Server"
-            },
-        ],
-        // Elemento de confianza social (opcional)
-        socialProof: {
-            show: false, // Cambiar a false para ocultar completamente
-            text: "+100 negocios confían en nosotros",
-            icon: "Users", // Icono de Lucide React
-            avatarCount: 4, // Cantidad de avatares decorativos (0-6)
-        },
-    },
-
-    // 7. GALERÍA
-    gallery: {
-        badge: "Nuestro Trabajo",
-        title: "Proyectos que hablan por sí mismos",
-        subtitle: "Cada diseño cuenta una historia de éxito",
-        showImageNames: true, // false para ocultar los nombres de las imágenes
-        items: [] as GalleryItem[],
-        // Ejemplo de estructura cuando tengas contenido:
-        // items: [
-        //     { image: "/images/gallery/project1.jpg", name: "Cafetería Aroma" },
-        //     { image: "/images/gallery/project2.jpg", name: "Restaurante El Buen Sabor" },
-        // ],
-    },
-
-    // 8. TESTIMONIOS (Reseñas de clientes)
-    testimonials: {
-        badge: "Testimonios",
-        title: "Lo que dicen nuestros clientes",
-        subtitle: "Historias reales de negocios que transformamos",
-        items: [] as TestimonialItem[],
-        // Ejemplo de estructura cuando tengas testimonios:
-        // items: [
-        //     {
-        //         name: "Juan Pérez",
-        //         role: "CEO de TechStart",
-        //         review: "Excelente servicio, mi negocio cambió por completo. Las ventas aumentaron un 300% en solo 3 meses. Totalmente recomendado.",
-        //         stars: 5,
-        //         avatar: "", // Opcional: ruta a imagen de avatar
-        //     },
-        // ],
-    },
-
-    // 8.5. SUCURSALES (Ubicaciones del negocio)
+    // 5. SUCURSALES - Para que sepan a dónde ir
     branches: {
-        badge: "Nuestras Ubicaciones",
-        title: "Visítanos en cualquiera de nuestras sucursales",
-        subtitle: "Estamos cerca de ti para brindarte el mejor servicio",
-        items: [] as BranchLocation[],
-        // Ejemplo de estructura cuando tengas sucursales:
-        // items: [
-        //     {
-        //         name: "Sucursal Centro",
-        //         address: "Av. Juárez #123, Centro Histórico, CDMX",
-        //         image: "/images/branches/centro.jpg", // Opcional
-        //         googleMapsLink: "https://maps.google.com/?q=19.4326,-99.1332",
-        //     },
-        //     {
-        //         name: "Sucursal Sur",
-        //         address: "Calzada de Tlalpan #456, Col. Del Valle, CDMX",
-        //         image: "/images/branches/sur.jpg",
-        //         googleMapsLink: "https://maps.google.com/?q=19.3910,-99.1710",
-        //     },
-        // ],
-    },
-
-    // 9. PREGUNTAS FRECUENTES (FAQ)
-    faqs: {
-        badge: "FAQ",
-        title: "Preguntas Frecuentes",
-        subtitle: "Resolvemos tus dudas más comunes",
+        badge: "Ubicaciones",
+        title: "Pasa por tu pollo",
+        subtitle: "Estamos en puntos estratégicos de Ciudad Guzmán",
         items: [
             {
-                question: "¿Cuánto tiempo toma desarrollar un sitio web?",
-                answer: "El tiempo de desarrollo varía según la complejidad del proyecto. Manejamos plazos ultrarrápidos, entregando sitios en tan solo lapsos de 48 a 72 horas para proyectos estándar. Para sitios más complejos, el tiempo puede extenderse a 1-2 semanas. Siempre te proporcionamos un cronograma claro desde el inicio.",
+                name: "Sucursal Ramón Corona",
+                address: "Calle Gral. Ramón Corona Madrigal 550, centro, 49000 Cdad. Guzmán, Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/cJZ5wWN8z2Ggi9S57",
             },
             {
-                question: "¿Qué incluye el servicio?",
-                answer: "Nuestro servicio incluye diseño personalizado, desarrollo responsive, optimización SEO básica, integración con redes sociales, formularios de contacto, y, si adquieres nuestro Plan Profesional, un dominio personalizado incluido. También incluimos 30 días de soporte post-lanzamiento sin costo adicional.",
+                name: "Sucursal Carlos Páez Stille",
+                address: "Av Carlos Páez Stille 429, 20 de Noviembre, 49087 Cdad. Guzmán, Jal.",
+                googleMapsLink: "https://goo.gl/maps/sucursal2",
             },
-            {
-                question: "¿Necesito conocimientos técnicos para administrar mi sitio?",
-                answer: "No necesitas conocimientos técnicos. Desarrollamos sitios con interfaces intuitivas para que no tengas que preocuparte por las cosas técnicas. Además, nuestro equipo está siempre disponible para ayudarte con cualquier actualización o cambio que necesites.",
-            },
-            {
-                question: "¿Qué formas de pago aceptan?",
-                answer: "Por el momento, solamente aceptamos depósitos por medio de Oxxo. Sin embargo, estamos trabajando para ofrecer más opciones de pago en el futuro cercano, incluyendo tarjetas de crédito y PayPal. Nuestro objetivo es facilitar el proceso de contratación para todos nuestros clientes.",
-            },
+        ] as BranchLocation[],
+    },
+
+    // 6. FAQ - Solo dudas de logística
+    faqs: {
+        badge: "Info",
+        title: "Horarios y Entregas",
+        subtitle: "Lo que necesitas saber antes de pedir",
+        items: [
+            { question: "¿Tienen servicio a domicilio?", answer: "Sí, en toda el área urbana de Ciudad Guzmán con un pequeño costo extra según la zona." },
+            { question: "¿A qué hora cierran?", answer: "Abrimos diario de 11:00 AM a 6:00 PM. ¡Los domingos volamos, pide temprano!" },
+            { question: "¿Aceptan tarjetas?", answer: "Sí, aceptamos todas las tarjetas de débito y crédito en nuestras sucursales." },
         ],
     },
 
-    // 10. REDES SOCIALES
-    socials: {
-        facebook: "https://facebook.com/...",
-        instagram: "https://instagram.com/...",
-        tiktok: "", // Si se deja vacío, que el componente no lo renderice
-    }
+    // Secciones deshabilitadas por no ser relevantes para este giro
+    painPoints: { points: [] },
+    services: { items: [] },
+    features: { items: [] },
+    gallery: { items: [] },
+    testimonials: { items: [] },
+    socials: { facebook: "https://facebook.com/PolloColosoJal", instagram: "", tiktok: "" }
 };
