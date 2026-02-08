@@ -15,6 +15,34 @@ interface TestimonialItem {
     avatar?: string;
 }
 
+interface FeatureItem {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+interface ServiceItem {
+    icon: string;
+    title: string;
+    description: string;
+    benefits?: string[];
+}
+
+interface PainPointItem {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+interface SocialProof {
+    show: boolean;
+    stat: string;
+    label: string;
+    icon?: string;
+    text?: string;
+    avatarCount?: number;
+}
+
 interface MenuProduct {
     name: string;
     description: string;
@@ -406,19 +434,24 @@ export const clientConfig = {
         title: "¿Por qué tu negocio no crece como debería?",
         subtitle: "Identificamos los problemas más comunes que detienen tus ventas digitales.",
         closingText: "Tenemos la solución perfecta para ti",
-        points: []
+        points: [] as PainPointItem[]
     },
     services: {
         badge: "Nuestras Soluciones",
         title: "Todo lo que tu negocio necesita para despegar",
         subtitle: "Servicios diseñados específicamente para hacer crecer tu presencia digital y atraer más clientes.",
-        items: []
+        items: [] as ServiceItem[]
     },
     features: {
         badge: "¿Por qué elegirnos?",
         title: "No somos como los demás",
         subtitle: "Mientras otras agencias tardan semanas y cobran fortunas, nosotros ofrecemos rapidez, calidad y precios inigualables.",
-        items: []
+        items: [] as FeatureItem[],
+        socialProof: {
+            show: false,
+            stat: "",
+            label: ""
+        } as SocialProof
     },
     gallery: {
         badge: "Nuestro Trabajo",
