@@ -80,7 +80,7 @@ export const clientConfig = {
         },
         theme: "modern" as "modern",
         enableAnimations: true,
-        uiPreset: "modern" as "modern",
+        uiPreset: "modern" as "modern" | "professional" | "minimal",
         get components() {
             return getUIConfig(this.uiPreset);
         },
