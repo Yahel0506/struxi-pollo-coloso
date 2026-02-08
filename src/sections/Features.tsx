@@ -152,7 +152,7 @@ export default function Features() {
                             >
                                 {features.socialProof.text}
                             </p>
-                            {features.socialProof.avatarCount > 0 && (
+                            {features.socialProof.avatarCount && features.socialProof.avatarCount > 0 && (
                                 <div className="flex -space-x-2">
                                     {Array.from({ length: Math.min(features.socialProof.avatarCount, 6) }).map((_, i) => (
                                         <div

@@ -22,6 +22,7 @@ interface FeatureItem {
 }
 
 interface ServiceItem {
+    id: string;
     icon: string;
     title: string;
     description: string;
@@ -30,7 +31,7 @@ interface ServiceItem {
 
 interface PainPointItem {
     icon: string;
-    title: string;
+    question: string;
     description: string;
 }
 
@@ -450,7 +451,10 @@ export const clientConfig = {
         socialProof: {
             show: false,
             stat: "",
-            label: ""
+            label: "",
+            icon: "",
+            text: "",
+            avatarCount: 0
         } as SocialProof
     },
     gallery: {
