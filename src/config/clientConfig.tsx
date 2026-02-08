@@ -1,24 +1,55 @@
 import type {FontFamily} from "./fonts";
-import { getUIConfig } from "./presets";
+import {getUIConfig} from "./presets";
 
 // Interfaces para tipado de elementos (se mantienen igual)
-interface GalleryItem { image: string; name: string; }
-interface TestimonialItem { name: string; role: string; review: string; stars: number; avatar?: string; }
-interface MenuProduct { name: string; description: string; type: string; price: string; benefit: string; }
+interface GalleryItem {
+    image: string;
+    name: string;
+}
+
+interface TestimonialItem {
+    name: string;
+    role: string;
+    review: string;
+    stars: number;
+    avatar?: string;
+}
+
+interface MenuProduct {
+    name: string;
+    description: string;
+    type: string;
+    price: string;
+    benefit: string;
+}
+
 interface MenuItem {
     type: "category" | "product";
     name: string;
     image?: string;
     products?: MenuProduct[];
+    // Para productos directos
     description?: string;
     productType?: string;
     price?: string;
     backgroundColor?: string;
     textColor?: string;
-    badge?: { show: boolean; text: string; strikethrough: boolean; backgroundColor: string; textColor: string; };
+    badge?: {
+        show: boolean;
+        text: string;
+        strikethrough: boolean;
+        backgroundColor: string;
+        textColor: string;
+    };
     benefits?: string[];
 }
-interface BranchLocation { name: string; address: string; image?: string; googleMapsLink: string; }
+
+interface BranchLocation {
+    name: string;
+    address: string;
+    image?: string;
+    googleMapsLink: string;
+}
 
 export const clientConfig = {
     // 1. MARCA - Identidad visual rápida
@@ -44,13 +75,15 @@ export const clientConfig = {
         },
         showNameInHeader: true,
         typography: {
-            headers: { fontFamily: "Montserrat" as FontFamily, fontWeight: 800, color: "#e61919" },
-            body: { fontFamily: "Inter" as FontFamily, fontWeight: 400, color: "" },
+            headers: {fontFamily: "Montserrat" as FontFamily, fontWeight: 800, color: "#e61919"},
+            body: {fontFamily: "Inter" as FontFamily, fontWeight: 400, color: ""},
         },
         theme: "modern" as "modern",
         enableAnimations: true,
         uiPreset: "modern" as "modern",
-        get components() { return getUIConfig(this.uiPreset); },
+        get components() {
+            return getUIConfig(this.uiPreset);
+        },
     },
 
     // 2. CONTACTO - Lo más importante
@@ -69,7 +102,17 @@ export const clientConfig = {
         subtitle: "Sabor tradicional asado al carbón con sus guarniciones de siempre.",
         buttonText: "Comprar Ahora",
         backgroundImage: "/images/menu/pollo.jpg",
-        featuredImage: { show: true, path: "/images/logo.png", alt: "Pollo Coloso", maxWidth: "350px" },
+        featuredImage: {show: true, path: "/images/logo.png", alt: "Pollo Coloso", maxWidth: "350px"},
+    },
+
+    announcement: {
+        // Ruta de la imagen del anuncio. Dejar vacío ("") para ocultar la sección.
+        // La imagen se mostrará al ancho de la pantalla manteniendo su relación de aspecto.
+        imagePath: "", // Ejemplo: "/images/announcement-banner.jpg"
+        // Alt text para accesibilidad
+        altText: "Anuncio especial",
+        // Ancho máximo del banner (opcional)
+        maxWidth: "1920px", // Ejemplo: "1200px", "1600px", "100%" para ancho completo
     },
 
     // 4. MENÚ - Utilidad pura para el usuario
@@ -101,7 +144,13 @@ export const clientConfig = {
                 name: "Pollo",
                 image: "/images/menu/pollo.jpg",
                 products: [
-                    { name: "1 Pollo Completo", description: "Pollo Asado al carbón con el sazón de pollo coloso.", type: "Pollo", price: "$170", benefit: "" },
+                    {
+                        name: "1 Pollo Completo",
+                        description: "Pollo Asado al carbón con el sazón de pollo coloso.",
+                        type: "Pollo",
+                        price: "$170",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -109,8 +158,20 @@ export const clientConfig = {
                 name: "Hamburguesas",
                 image: "/images/menu/hamburguesas.jpg",
                 products: [
-                    { name: "Hamburguesa de Res", description: "Hamburguesa de Res acompañado con papas fritas.", type: "Res", price: "$70", benefit: "" },
-                    { name: "Hamburguesa de Pollo", description: "Hamburguesa de Pollo acompañado con papas fritas.", type: "Pollo", price: "$70", benefit: "" },
+                    {
+                        name: "Hamburguesa de Res",
+                        description: "Hamburguesa de Res acompañado con papas fritas.",
+                        type: "Res",
+                        price: "$70",
+                        benefit: ""
+                    },
+                    {
+                        name: "Hamburguesa de Pollo",
+                        description: "Hamburguesa de Pollo acompañado con papas fritas.",
+                        type: "Pollo",
+                        price: "$70",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -118,10 +179,34 @@ export const clientConfig = {
                 name: "Alitas de Pollo",
                 image: "/images/menu/alitas.jpg",
                 products: [
-                    { name: "Alitas BBQ", description: "Alitas de pollo al estilo BBQ con el sazón de pollo coloso acompañado de papas fritas.", type: "BBQ", price: "$85", benefit: "" },
-                    { name: "Alitas Naturales", description: "Alitas de pollo naturales con el sazón de pollo coloso acompañado de papas fritas.", type: "Naturales", price: "$85", benefit: "" },
-                    { name: "Alitas Buffalo", description: "Alitas de pollo al estilo Buffalo con el sazón de pollo coloso acompañado de papas fritas.", type: "Buffalo", price: "$85", benefit: "" },
-                    { name: "Alitas Mango Habanero", description: "Alitas de pollo al estilo Mango Habanero con el sazón de pollo coloso acompañado de papas fritas.", type: "Mango Habanero", price: "$85", benefit: "" },
+                    {
+                        name: "Alitas BBQ",
+                        description: "Alitas de pollo al estilo BBQ con el sazón de pollo coloso acompañado de papas fritas.",
+                        type: "BBQ",
+                        price: "$85",
+                        benefit: ""
+                    },
+                    {
+                        name: "Alitas Naturales",
+                        description: "Alitas de pollo naturales con el sazón de pollo coloso acompañado de papas fritas.",
+                        type: "Naturales",
+                        price: "$85",
+                        benefit: ""
+                    },
+                    {
+                        name: "Alitas Buffalo",
+                        description: "Alitas de pollo al estilo Buffalo con el sazón de pollo coloso acompañado de papas fritas.",
+                        type: "Buffalo",
+                        price: "$85",
+                        benefit: ""
+                    },
+                    {
+                        name: "Alitas Mango Habanero",
+                        description: "Alitas de pollo al estilo Mango Habanero con el sazón de pollo coloso acompañado de papas fritas.",
+                        type: "Mango Habanero",
+                        price: "$85",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -129,7 +214,13 @@ export const clientConfig = {
                 name: "Flautas",
                 image: "/images/menu/flautas.jpg",
                 products: [
-                    { name: "Orden de Flautas", description: "Orden de flautas acompañado con ensalada.", type: "Flautas", price: "$45", benefit: "" },
+                    {
+                        name: "Orden de Flautas",
+                        description: "Orden de flautas acompañado con ensalada.",
+                        type: "Flautas",
+                        price: "$45",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -137,7 +228,13 @@ export const clientConfig = {
                 name: "Dedos de Queso",
                 image: "/images/menu/dedos.jpg",
                 products: [
-                    { name: "Dedos de Queso", description: "Dedos de queso acompañados con papas fritas.", type: "Dedos de Queso", price: "$65", benefit: "" },
+                    {
+                        name: "Dedos de Queso",
+                        description: "Dedos de queso acompañados con papas fritas.",
+                        type: "Dedos de Queso",
+                        price: "$65",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -145,8 +242,20 @@ export const clientConfig = {
                 name: "Quesadillas",
                 image: "/images/menu/quesadillas.jpg",
                 products: [
-                    { name: "Quesadilla Sencilla", description: "Quesadilla grande acompañado de ensalada y todo el sabor de pollo coloso.", type: "Sencilla", price: "$50", benefit: "" },
-                    { name: "Quesadilla con Pollo", description: "Quesadilla grande con pollo, acompañado de ensalada y todo el sabor de pollo coloso.", type: "Con Pollo", price: "$70", benefit: "" },
+                    {
+                        name: "Quesadilla Sencilla",
+                        description: "Quesadilla grande acompañado de ensalada y todo el sabor de pollo coloso.",
+                        type: "Sencilla",
+                        price: "$50",
+                        benefit: ""
+                    },
+                    {
+                        name: "Quesadilla con Pollo",
+                        description: "Quesadilla grande con pollo, acompañado de ensalada y todo el sabor de pollo coloso.",
+                        type: "Con Pollo",
+                        price: "$70",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -154,8 +263,20 @@ export const clientConfig = {
                 name: "Nuggets y Papas a la Francesa",
                 image: "/images/menu/nuggets.jpg",
                 products: [
-                    { name: "Papas a la Francesa", description: "Papas a la francesa elaboradas en el momento con el sazón de Pollo Coloso.", type: "Papas", price: "$45", benefit: "" },
-                    { name: "Nuggets de Pollo", description: "Nuggets de pollo con el sazón del Pollo Coloso acompañados de papas a la francesa.", type: "Nuggets", price: "$55", benefit: "" },
+                    {
+                        name: "Papas a la Francesa",
+                        description: "Papas a la francesa elaboradas en el momento con el sazón de Pollo Coloso.",
+                        type: "Papas",
+                        price: "$45",
+                        benefit: ""
+                    },
+                    {
+                        name: "Nuggets de Pollo",
+                        description: "Nuggets de pollo con el sazón del Pollo Coloso acompañados de papas a la francesa.",
+                        type: "Nuggets",
+                        price: "$55",
+                        benefit: ""
+                    },
                 ],
             },
             {
@@ -163,8 +284,20 @@ export const clientConfig = {
                 name: "Ensaladas",
                 image: "/images/menu/ensaladas.jpg",
                 products: [
-                    { name: "Ensalada Grande", description: "Ensalada grande con el sazón de Pollo Coloso.", type: "Grande", price: "$40", benefit: "" },
-                    { name: "Ensalada Chica", description: "Ensalada chica con el sazón de Pollo Coloso.", type: "Chica", price: "$25", benefit: "" },
+                    {
+                        name: "Ensalada Grande",
+                        description: "Ensalada grande con el sazón de Pollo Coloso.",
+                        type: "Grande",
+                        price: "$40",
+                        benefit: ""
+                    },
+                    {
+                        name: "Ensalada Chica",
+                        description: "Ensalada chica con el sazón de Pollo Coloso.",
+                        type: "Chica",
+                        price: "$25",
+                        benefit: ""
+                    },
 
                 ],
             },
@@ -173,13 +306,55 @@ export const clientConfig = {
                 name: "Complementos",
                 image: "/images/menu/complementos.jpg",
                 products: [
-                    { name: "Codito de Jamón", description: "Codito de Jamón hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
-                    { name: "Codito de Pepino", description: "Codito de Pepino hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
-                    { name: "Arroz Blanco", description: "Arroz Blanco hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
-                    { name: "Arroz Rojo", description: "Arroz Rojo hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$25", benefit: "" },
-                    { name: "Guacamole", description: "Guacamole hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$35", benefit: "" },
-                    { name: "Papas en Gajo", description: "Papas en Gajo hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$45", benefit: "" },
-                    { name: "Papas Adobadas", description: "Papas Adobadas hecho con todo el sazón de Pollo Coloso.", type: "Complemento", price: "$30", benefit: "" },
+                    {
+                        name: "Codito de Jamón",
+                        description: "Codito de Jamón hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$25",
+                        benefit: ""
+                    },
+                    {
+                        name: "Codito de Pepino",
+                        description: "Codito de Pepino hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$25",
+                        benefit: ""
+                    },
+                    {
+                        name: "Arroz Blanco",
+                        description: "Arroz Blanco hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$25",
+                        benefit: ""
+                    },
+                    {
+                        name: "Arroz Rojo",
+                        description: "Arroz Rojo hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$25",
+                        benefit: ""
+                    },
+                    {
+                        name: "Guacamole",
+                        description: "Guacamole hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$35",
+                        benefit: ""
+                    },
+                    {
+                        name: "Papas en Gajo",
+                        description: "Papas en Gajo hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$45",
+                        benefit: ""
+                    },
+                    {
+                        name: "Papas Adobadas",
+                        description: "Papas Adobadas hecho con todo el sazón de Pollo Coloso.",
+                        type: "Complemento",
+                        price: "$30",
+                        benefit: ""
+                    },
                 ],
             },
         ] as MenuItem[],
@@ -210,17 +385,53 @@ export const clientConfig = {
         title: "Horarios y Entregas",
         subtitle: "Lo que necesitas saber antes de pedir",
         items: [
-            { question: "¿Tienen servicio a domicilio?", answer: "Sí, en toda el área urbana de Ciudad Guzmán con un pequeño costo extra según la zona." },
-            { question: "¿A qué hora cierran?", answer: "Abrimos diario de 11:00 AM a 6:00 PM. ¡Los domingos volamos, pide temprano!" },
-            { question: "¿Aceptan tarjetas?", answer: "Sí, aceptamos todas las tarjetas de débito y crédito en nuestras sucursales." },
+            {
+                question: "¿Tienen servicio a domicilio?",
+                answer: "Sí, en toda el área urbana de Ciudad Guzmán con un pequeño costo extra según la zona."
+            },
+            {
+                question: "¿A qué hora cierran?",
+                answer: "Abrimos diario de 11:00 AM a 6:00 PM. ¡Los domingos volamos, pide temprano!"
+            },
+            {
+                question: "¿Aceptan tarjetas?",
+                answer: "Sí, aceptamos todas las tarjetas de débito y crédito en nuestras sucursales."
+            },
         ],
     },
 
     // Secciones deshabilitadas por no ser relevantes para este giro
-    painPoints: { points: [] },
-    services: { items: [] },
-    features: { items: [] },
-    gallery: { items: [] },
-    testimonials: { items: [] },
-    socials: { facebook: "https://facebook.com/PolloColosoJal", instagram: "", tiktok: "" }
+    painPoints: {
+        badge: "¿Te suena familiar?",
+        title: "¿Por qué tu negocio no crece como debería?",
+        subtitle: "Identificamos los problemas más comunes que detienen tus ventas digitales.",
+        closingText: "Tenemos la solución perfecta para ti",
+        points: []
+    },
+    services: {
+        badge: "Nuestras Soluciones",
+        title: "Todo lo que tu negocio necesita para despegar",
+        subtitle: "Servicios diseñados específicamente para hacer crecer tu presencia digital y atraer más clientes.",
+        items: []
+    },
+    features: {
+        badge: "¿Por qué elegirnos?",
+        title: "No somos como los demás",
+        subtitle: "Mientras otras agencias tardan semanas y cobran fortunas, nosotros ofrecemos rapidez, calidad y precios inigualables.",
+        items: []
+    },
+    gallery: {
+        badge: "Nuestro Trabajo",
+        title: "Proyectos que hablan por sí mismos",
+        subtitle: "Cada diseño cuenta una historia de éxito",
+        showImageNames: true, // false para ocultar los nombres de las imágenes
+        items: [] as GalleryItem[],
+    },
+    testimonials: {
+        badge: "Testimonios",
+        title: "Lo que dicen nuestros clientes",
+        subtitle: "Historias reales de negocios que transformamos",
+        items: [] as TestimonialItem[],
+    },
+    socials: {facebook: "https://facebook.com/PolloColosoJal", instagram: "", tiktok: ""}
 };
