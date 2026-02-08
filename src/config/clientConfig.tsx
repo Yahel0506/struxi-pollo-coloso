@@ -58,6 +58,7 @@ export const clientConfig = {
         whatsappNumber: "523414184141",
         whatsappMessage: "¡Hola! Quiero hacer un pedido.",
         phoneDisplay: "341 418 4141",
+        email: "",
         address: "Calle Gral. Ramón Corona Madrigal 550, centro, 49000 Cdad. Guzmán, Jal.",
         googleMapsLink: "https://maps.app.goo.gl/YQwA5Kkh3PSw5QZM6",
     },

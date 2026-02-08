@@ -5,22 +5,22 @@ import { Metadata } from "next";
 
 // Metadatos estáticos - Next.js los procesa en build time
 export const metadata: Metadata = {
-    title: "Struxi Labs",
-    description: "Desarrollo web profesional, páginas web para pymes México, landing pages de alta conversión, diseño web rápido, Struxi Labs, creación de sitios web con Next.js, digitalización de negocios locales.",
+    title: "El Pollo Coloso",
+    description: "El Pollo Coloso le ofrece pollos al estilo Sinaloa con una de los mejores tratos así como de un gran sazón.",
     icons: {
         icon: "/images/logo.png",
         shortcut: "/images/logo.png",
         apple: "/images/logo.png",
     },
     openGraph: {
-        title: "Struxi Labs",
-        description: "Desarrollo web profesional para pymes en México",
+        title: "El Pollo Coloso",
+        description: "El Pollo Coloso le ofrece pollos al estilo Sinaloa",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Struxi Labs",
-        description: "Desarrollo web profesional para pymes en México",
+        title: "El Pollo Coloso",
+        description: "El Pollo Coloso le ofrece pollos al estilo Sinaloa",
     },
 };
 
