@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* Optimización de renderizado */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll suave en toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Aplicar colores del sistema desde variables CSS definidas en layout.tsx */
+body {
+  background: var(--color-background);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+
+  /* Optimización de renderizado */
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Estilos para headers (H1, H2, H3, H4, H5, H6) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: var(--font-weight-header);
+  color: var(--color-header);
+
+  /* Optimización para textos grandes */
+  text-rendering: optimizeLegibility;
+}
+
+/* Estilos para scrollbar horizontal en carruseles de menú - solo en desktop */
+@media (min-width: 768px) {
+  .menu-carousel::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .menu-carousel::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .menu-carousel::-webkit-scrollbar-thumb {
+    background: rgba(218, 0, 125, 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .menu-carousel::-webkit-scrollbar-thumb:hover {
+    background: rgba(218, 0, 125, 0.5);
+  }
+
+  /* Soporte para Firefox */
+  .menu-carousel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(218, 0, 125, 0.3) transparent;
+  }
+
+  /* Ancho de las cards de productos en desktop */
+  .menu-product-card {
+    width: 280px;
+  }
+
+  /* Ancho de las cards de categorías en desktop */
+  .menu-category-card {
+    width: 180px;
+  }
+
+  /* Scroll snap para carruseles horizontales solo en desktop */
+  .menu-horizontal-scroll {
+    scroll-snap-type: x mandatory;
+  }
+
+  .menu-product-card,
+  .menu-category-card {
+    scroll-snap-align: center;
+  }
+}
+
+/* Estilos para scroll interno del contenido superior de productos */
+.menu-product-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-product-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menu-product-content::-webkit-scrollbar-thumb {
+  background: rgba(218, 0, 125, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.menu-product-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(218, 0, 125, 0.5);
+}
+
+/* Soporte para Firefox */
+.menu-product-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(218, 0, 125, 0.3) transparent;
+}
+
+
+
+
