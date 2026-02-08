@@ -117,9 +117,9 @@ export const clientConfig = {
 
     // 2. CONTACTO - Lo más importante
     contact: {
-        whatsappNumber: "523414184141",
+        whatsappNumber: "523411002311",
         whatsappMessage: "¡Hola! Quiero hacer un pedido.",
-        phoneDisplay: "341 418 4141",
+        phoneDisplay: "341 100 2311",
         email: "",
         address: "Calle Gral. Ramón Corona Madrigal 550, centro, 49000 Cdad. Guzmán, Jal.",
         googleMapsLink: "https://maps.app.goo.gl/YQwA5Kkh3PSw5QZM6",
