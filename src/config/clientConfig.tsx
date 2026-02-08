@@ -78,7 +78,7 @@ export const clientConfig = {
             headers: {fontFamily: "Montserrat" as FontFamily, fontWeight: 800, color: "#e61919"},
             body: {fontFamily: "Inter" as FontFamily, fontWeight: 400, color: ""},
         },
-        theme: "modern" as "modern",
+        theme: "modern" as "modern" | "professional" | "minimal",
         enableAnimations: true,
         uiPreset: "modern" as "modern" | "professional" | "minimal",
         get components() {
