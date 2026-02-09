@@ -158,7 +158,7 @@ export default function Menu() {
                                     const customBg = item.backgroundColor;
                                     const customText = item.textColor;
 
-                                    const bgColor = customBg || clientConfig.brand.colors.background;
+                                    const bgColor = customBg || "rgba(135,21,21,0.69)";
                                     const titleColor = customText || (hasImage ? "#ffffff" : getHeaderColor());
                                     const descColor = customText || (hasImage ? "#e5e7eb" : getBodyColor());
                                     const priceColor = customText || (hasImage ? "#ffffff" : clientConfig.brand.colors.primary);

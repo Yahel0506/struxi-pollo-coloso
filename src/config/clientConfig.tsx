@@ -84,7 +84,7 @@ export const clientConfig = {
     // 1. MARCA - Identidad visual rápida
     brand: {
         name: "El Pollo Coloso",
-        tagline: "Desde 1982 el mejor sabor de Ciudad Guzmán.",
+        tagline: "Los mejores pollos al estilo Sinaloa.",
         logoPath: "/images/logo.png",
         faviconPath: "/images/logo.png",
         seoDescription: "El Pollo Coloso le ofrece pollos al estilo Sinaloa con una de los mejores tratos así como de un gran sazón.",
@@ -104,7 +104,7 @@ export const clientConfig = {
         },
         showNameInHeader: true,
         typography: {
-            headers: {fontFamily: "Montserrat" as FontFamily, fontWeight: 800, color: "#e61919"},
+            headers: {fontFamily: "Poppins" as FontFamily, fontWeight: 800, color: "#e61919"},
             body: {fontFamily: "Inter" as FontFamily, fontWeight: 400, color: ""},
         },
         theme: "modern" as "modern" | "professional" | "minimal",
@@ -131,7 +131,7 @@ export const clientConfig = {
         subtitle: "Sabor tradicional asado al carbón con sus guarniciones de siempre.",
         buttonText: "Comprar Ahora",
         backgroundImage: "/images/menu/pollo.jpg",
-        featuredImage: {show: true, path: "/images/logo.png", alt: "Pollo Coloso", maxWidth: "350px"},
+        featuredImage: {show: true, path: "/images/logo.png", alt: "Pollo Coloso", maxWidth: "250px"},
     },
 
     announcement: {
@@ -159,14 +159,16 @@ export const clientConfig = {
                 price: "$265 MXN",
                 image: "/images/menu/pollo.jpg",
                 benefits: ["1 Pollo y Medio", "2 complementos", "Deliciosas salsas", "Tortillas calientes", "Totopos crujientes"],
+                productType: "Paquete 1",
             },
             {
                 type: "product",
-                name: "1 POLLO Y MEDIO",
-                description: "El paquete familiar por excelencia, comen hasta 5 personas.",
+                name: "1 POLLO COMPLETO",
+                description: "Ideal para hasta 3 personas que buscan disfrutar de un delicioso pollo asado.",
                 price: "$175 MXN",
                 image: "/images/menu/pollo.jpg",
                 benefits: ["1 Pollo Completo", "2 complementos", "Deliciosas salsas", "Tortillas calientes", "Totopos crujientes"],
+                productType: "Paquete 2",
             },
             {
                 type: "category",
@@ -403,7 +405,32 @@ export const clientConfig = {
             {
                 name: "Sucursal Carlos Páez Stille",
                 address: "Av Carlos Páez Stille 429, 20 de Noviembre, 49087 Cdad. Guzmán, Jal.",
-                googleMapsLink: "https://goo.gl/maps/sucursal2",
+                googleMapsLink: "https://maps.app.goo.gl/4G1htki1Di42V9Zw7",
+            },
+            {
+                name: "Sucursal Cristóbal Colón",
+                address: "Av. Cristóbal Colón 12, Cd Guzmán Centro, 49000 Cdad. Guzmán, Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/BxbCiqAbAXpTeuDD6",
+            },
+            {
+                name: "Sucursal Zapotiltic",
+                address: "Calle Prol. Juárez 231-D-231-D, Centro, 49600 Zapotiltic, Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/ZKwPjyJsP4DtVa5e8",
+            },
+            {
+                name: "Sucursal El Fresnito",
+                address: "C. Liborio Montes 81, 49106 La Mesa, Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/KbnaZHk7GWa7vKYAA",
+            },
+            {
+                name: "Sucursal Tuxpan",
+                address: "C. Francisco I Madero 55b, 49800 Tuxpan, Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/x4AbvDBvEzeJ4cru7",
+            },
+            {
+                name: "Sucursal Tamazula de Gordiano",
+                address: "Calle Niños Héroes 85, Tamazula de Gordiano, Tamazula, 49650 Jal.",
+                googleMapsLink: "https://maps.app.goo.gl/eguJL8FsTSXoYxDC7",
             },
         ] as BranchLocation[],
     },
@@ -420,7 +447,7 @@ export const clientConfig = {
             },
             {
                 question: "¿A qué hora cierran?",
-                answer: "Abrimos diario de 11:00 AM a 6:00 PM. ¡Los domingos volamos, pide temprano!"
+                answer: "Abrimos diario de 9:00 AM a 6:00 PM. ¡Los domingos volamos, pide temprano!"
             },
             {
                 question: "¿Aceptan tarjetas?",

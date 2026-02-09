@@ -254,7 +254,7 @@ export default function Footer() {
                             className="text-sm"
                             style={{ color: getBodyColor() }}
                         >
-                            por {clientConfig.brand.name}
+                            por Struxi Labs
                         </span>
                     </div>
                 </div>
